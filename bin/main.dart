@@ -17,11 +17,18 @@ List mergeList(List list1, List list2){
  for(int i = 0; i < listLength; i++){
   if(small[i] < big[i]){
    result.addAll([small[i], big[i]]);
+   big.removeAt(i);
   }
-  if(small[i] > big[i]){
+  else if(small[i] > big[i]){
    result.addAll([big[i], small[i]]);
+   big.removeAt(i);
+  }
+  else {
+   result.addAll([big[i], small[i]]);
+   big.removeAt(i);
   }
  }
+ result.addAll(big);
  return result;
 }
 
